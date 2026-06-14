@@ -14,6 +14,23 @@
 | 依存 | なし（Pure HTML + CSS + Vanilla JS） |
 | 推奨配置 | ファーストビュー、セクションの切り替わり |
 
+
+## スキルとして導入 / Install as a skill
+
+このリポジトリは Claude Code / Codex CLI 共通の **`SKILL.md`**（オープン標準）を同梱しており、AI エージェントのスキルとして使えます。リポジトリ自体をスキルディレクトリへリンクするだけです。
+
+This repo ships a cross-agent **`SKILL.md`** (open standard) usable by both Claude Code and Codex CLI. Just link the repo into the agent's skills directory.
+
+```bash
+# Claude Code
+ln -s "$(pwd)" ~/.claude/skills/anim-grid-reveal
+# Codex CLI
+ln -s "$(pwd)" ~/.codex/skills/anim-grid-reveal
+```
+
+エージェントを再起動すると `description` に基づき自動でマッチします（スキル名: `anim-grid-reveal`）。
+Restart the agent; it is matched automatically by the skill's `description` (skill name: `anim-grid-reveal`).
+
 ## 仕組み
 
 1. JS が `.grid-reveal` の実寸を測り、`--gr-cell` 間隔で SVG `<line>` を生成
